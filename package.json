@@ -1,0 +1,31 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "https://github.com/ikanago/TicTacToe",
+  "author": "ikanago <28985004+ikanago@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "watch": "webpack -w",
+    "fmt": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.47",
+    "@types/react-dom": "^16.9.8",
+    "html-webpack-plugin": "^4.3.0",
+    "prettier": "^2.1.0",
+    "ts-loader": "^8.0.3",
+    "typescript": "^4.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
