@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Cell } from "../Cell";
-import { judgeVertically } from "./judgeBoard";
+import { judgeWinner } from "./judgeBoard";
 
 export const Board = () => {
     // The number of row or column.
@@ -14,7 +14,7 @@ export const Board = () => {
         setCells(_cells);
         setXIsNext(!xIsNext);
     };
-    const winner = judgeVertically(cells, size);
+    const winner = judgeWinner(cells, size);
     let status;
     console.log(winner);
     if (winner !== null) {
