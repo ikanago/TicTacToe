@@ -1,44 +1,27 @@
-import React from "react"
-import styled from "styled-components"
-import { Square } from "./Square"
+import React from "react";
+import styled from "styled-components";
+import { Square } from "./Square";
 
-export class Board extends React.Component {
-    renderSquare(i) {
-        return <Square />;
-    }
-
-    render() {
-        const status = 'Next player: X';
-
-        return (
-            <div>
-                <Status>{status}</Status>
-                <BoardRow>
-                    {this.renderSquare(0)}
-                    {this.renderSquare(1)}
-                    {this.renderSquare(2)}
-                </BoardRow>
-                <BoardRow>
-                    {this.renderSquare(3)}
-                    {this.renderSquare(4)}
-                    {this.renderSquare(5)}
-                </BoardRow>
-                <BoardRow>
-                    {this.renderSquare(6)}
-                    {this.renderSquare(7)}
-                    {this.renderSquare(8)}
-                </BoardRow>
-            </div>
-        );
-    }
-}
+export const Board = () => {
+    const squares = new Array(9).fill(0);
+    return (
+        <BoardWrapper>
+            {squares.map((_, i) => (
+                <Square key={i} />
+            ))}
+        </BoardWrapper>
+    );
+};
 
 const Status = styled.div`
-margin-bottom: 0.5rem;
-`
+    margin-bottom: 0.5rem;
+`;
 
-const BoardRow = styled.div`
-clear: both;
-content: "";
-display: table;
+const BoardWrapper = styled.div`
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    width: 10rem;
+    height: 10rem;
+    clear: both;
+    content: "";
 `;
