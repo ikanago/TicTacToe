@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Square } from "./Square";
+import { Cell } from "./Cell";
 
 export const Board = () => {
-    const squares = new Array(9).fill(0);
+    const [cells, setCells] = useState(Array(9).fill(null));
+    const [xIsNext, setXIsNext] = useState(true);
+    const updateCells = (index: number) => {
+        const _cells = [...cells];
+        _cells[index] = xIsNext ? "X" : "O";
+        setCells(_cells);
+        setXIsNext(!xIsNext);
+    };
+    const status = `Next player: ${xIsNext ? "X" : "O"}`;
+
     return (
-        <BoardWrapper>
-            {squares.map((_, i) => (
-                <Square key={i} />
-            ))}
-        </BoardWrapper>
+        <>
+            <Status>{status}</Status>
+            <BoardWrapper>
+                {cells.map((_, i) => (
+                    <Cell
+                        key={i}
+                        value={cells[i]}
+                        onClick={() => updateCells(i)}
+                    />
+                ))}
+            </BoardWrapper>
+        </>
     );
 };
 

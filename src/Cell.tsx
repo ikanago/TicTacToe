@@ -1,8 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Square = () => {
-    return <Button>{/* TODO */}</Button>;
+type CellProps = {
+    value: string | null;
+    onClick: () => void;
+};
+
+export const Cell = ({ value, onClick }: CellProps) => {
+    return <Button onClick={onClick}>{value}</Button>;
 };
 
 const Button = styled.button`
