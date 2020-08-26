@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Board } from "./Board";
+import { Board } from "./board/Board";
 
 export const Game = () => {
     return (

@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Cell } from "./Cell";
+import { Cell } from "../Cell";
+import { judgeVertically } from "./judgeBoard";
 
 export const Board = () => {
-    const [cells, setCells] = useState(Array(9).fill(null));
+    // The number of row or column.
+    const size = 3;
+    const [cells, setCells] = useState(Array(size * size).fill(null));
     const [xIsNext, setXIsNext] = useState(true);
     const updateCells = (index: number) => {
         const _cells = [...cells];
@@ -11,7 +14,14 @@ export const Board = () => {
         setCells(_cells);
         setXIsNext(!xIsNext);
     };
-    const status = `Next player: ${xIsNext ? "X" : "O"}`;
+    const winner = judgeVertically(cells, size);
+    let status;
+    console.log(winner);
+    if (winner !== null) {
+        status = `Winner: ${winner}`;
+    } else {
+        status = `Next player: ${xIsNext ? "X" : "O"}`;
+    }
 
     return (
         <>
