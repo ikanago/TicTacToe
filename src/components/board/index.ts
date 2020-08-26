@@ -9,6 +9,6 @@ import { Board } from "./Board";
  */
 const rowAndColumnToIndex = (row: number, col: number, size: number) => {
     return row * size + col;
-}
+};
 
 export { Board, rowAndColumnToIndex };
