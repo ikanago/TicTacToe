@@ -1,4 +1,5 @@
 import { Board } from "./Board";
+import { judgeWinner } from "./judgeBoard";
 
 /**
  * Consider representing a 2-dimentional square-shaped array in a 1-dimentional array.
@@ -11,4 +12,4 @@ const rowAndColumnToIndex = (row: number, col: number, size: number) => {
     return row * size + col;
 };
 
-export { Board, rowAndColumnToIndex };
+export { Board, judgeWinner, rowAndColumnToIndex };
